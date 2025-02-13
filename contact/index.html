@@ -378,41 +378,63 @@ IGBT Busstand, Manjeri - 1</a></li>
                         <div class="cp-contact-form-wrap mb-70 wow fadeInUp animated" data-wow-duration="1.5s">
                             <h3 class="cp-contact-title mb-25">Send us a message</h3>
                             <div class="cp-contact-form">
-                                <form action="#" method="post" class="">
-                                    <input type="hidden" name="csrfmiddlewaretoken" value="bQ6k3ia7Uzr1b89vKggltaJdJ1fvYOV6cHfzntEKudHCzluUMf5uL094Xy7Bx3f5">
-                                    <div class="cp-input-field">
-                                        <label for="name">Your Name (required)</label>
-                                        <input type="text" name="name" class="form-control input required" placeholder="Name" required maxlength="120" id="id_name">
-                                        <i class="far fa-user"></i>
-                                    </div>
-                                    <div class="cp-input-field">
-                                        <label for="email">Your E-Mail (required)</label>
-                                        <input type="email" name="email" class="required form-control input" placeholder="Email" required maxlength="254" id="id_email">
-                                        <i class="far fa-envelope-open"></i>
-                                    </div>
-                                    <div class="cp-input-field">
-                                        <label for="email">Your Phone (required)</label>
-                                        <input type="text" name="phone" class="required form-control input" placeholder="Mobile" required maxlength="120" id="id_phone">
-                                        <i class="far fa-phone"></i>
-                                    </div>
-                                    <div class="cp-input-field textarea">
-                                        <label for="message">Type Your Message</label>
-                                       <textarea name="message" cols="15" rows="4" class="required form-control input" placeholder="Message" required id="id_message">
-</textarea>
-                                        <i class="far fa-edit"></i>
-                                    </div>
-                                    <button type="submit" class="cp-border-btn mt-15">
-                                        send message
-                                        <span class="cp-border-btn__inner">
-                                            <span class="cp-border-btn__blobs">
-                                                <span class="cp-border-btn__blob"></span>
-                                                <span class="cp-border-btn__blob"></span>
-                                                <span class="cp-border-btn__blob"></span>
-                                                <span class="cp-border-btn__blob"></span>
-                                            </span>
-                                        </span>
-                                    </button>
-                                </form>
+                              <form action="#" method="post" class="" onsubmit="sendToWhatsApp(event)">
+                                 <input type="hidden" name="csrfmiddlewaretoken" value="bQ6k3ia7Uzr1b89vKggltaJdJ1fvYOV6cHfzntEKudHCzluUMf5uL094Xy7Bx3f5">
+                                 
+                                 <div class="cp-input-field">
+                                     <label for="name">Your Name (required)</label>
+                                     <input type="text" name="name" class="form-control input required" placeholder="Name" required maxlength="120" id="id_name">
+                                     <i class="far fa-user"></i>
+                                 </div>
+                                 
+                                 <div class="cp-input-field">
+                                     <label for="email">Your E-Mail (required)</label>
+                                     <input type="email" name="email" class="required form-control input" placeholder="Email" required maxlength="254" id="id_email">
+                                     <i class="far fa-envelope-open"></i>
+                                 </div>
+                                 
+                                 <div class="cp-input-field">
+                                     <label for="phone">Your Phone (required)</label>
+                                     <input type="text" name="phone" class="required form-control input" placeholder="Mobile" required maxlength="120" id="id_phone">
+                                     <i class="far fa-phone"></i>
+                                 </div>
+                                 
+                                 <div class="cp-input-field textarea">
+                                     <label for="message">Type Your Message</label>
+                                     <textarea name="message" cols="15" rows="4" class="required form-control input" placeholder="Message" required id="id_message"></textarea>
+                                     <i class="far fa-edit"></i>
+                                 </div>
+                                 
+                                 <button type="submit" class="cp-border-btn mt-15">
+                                     Send Message
+                                     <span class="cp-border-btn__inner">
+                                         <span class="cp-border-btn__blobs">
+                                             <span class="cp-border-btn__blob"></span>
+                                             <span class="cp-border-btn__blob"></span>
+                                             <span class="cp-border-btn__blob"></span>
+                                             <span class="cp-border-btn__blob"></span>
+                                         </span>
+                                     </span>
+                                 </button>
+                             </form>
+                             
+                             <script>
+                                 function sendToWhatsApp(event) {
+                                     event.preventDefault(); // Prevent actual form submission
+                             
+                                     var name = document.getElementById("id_name").value;
+                                     var email = document.getElementById("id_email").value;
+                                     var phone = document.getElementById("id_phone").value;
+                                     var message = document.getElementById("id_message").value;
+                             
+                                     var whatsappMessage = `Hello, I am ${name}.%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
+                             
+                                     var whatsappURL = `https://wa.me/918281027877?text=${whatsappMessage}`;
+                             
+                                     window.location.href = whatsappURL;
+                                 }
+                             </script>
+                             
                             </div>
                         </div>
                     </div>
